@@ -18,6 +18,16 @@ import TOVsolver.constant as constant
 import bisect
 
 def OutputMRT(input_file='',density=[],pressure=[], f=[-1], CutPress=0.0, rho_min=14.2, rho_max=15.6, rho_num=50, dr_max=1e3, Flag=False):
+    
+    """Outputs the mass, radius, and tidal deformability
+    Args:
+        central_density (float): central density that we want to compute
+        density (array, optional): numpy 1Darray. Density of EoS
+        pressure (array, optional): numpy 1Darray. pressure of EoS
+
+    Returns:
+        MRT: 2D array (rho_nym x 3) with mass, radius and tidal.
+    """
 
     c = constant.c
     G = constant.G
@@ -49,9 +59,7 @@ def OutputMRT(input_file='',density=[],pressure=[], f=[-1], CutPress=0.0, rho_mi
         except OverflowError as e:
             print("This EOS is ill-defined to reach an infinity result, that is not phyiscal.")
             break
-            
     MRT = np.vstack((Radius, Mass,tidal)).T
-
     return MRT
 
 def OutputC_s(input_file='',density=[],pressure=[]):
