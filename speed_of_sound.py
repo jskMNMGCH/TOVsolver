@@ -95,11 +95,3 @@ def calc_dist_inLambda(M_intersect, mono_MT_list1, mono_MT_list2):
     print(TofM_func1(M_intersect), TofM_func2(M_intersect))
     
     return abs(TofM_func1(M_intersect) - TofM_func2(M_intersect))
-
-
-
-
-
-
-
-         
